@@ -3,7 +3,7 @@
 [README.md](https://github.com/user-attachments/files/26101330/README.md)
 # 八字排盘工具 - 免费在线算命 | 生辰八字查询 | 四柱预测
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)]((https://jiahongsun181-tech.github.io/bazi-calculator/))
+[![GitHub Pages](https://jiahongsun181-tech.github.io/bazi-calculator/)]((https://jiahongsun181-tech.github.io/bazi-calculator/))
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 免费开源的八字排盘工具，输入出生时间即可获取八字信息、五行分析和性格解读。
