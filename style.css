@@ -1,0 +1,451 @@
+/* 八字排盘工具样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Input Section */
+.input-section {
+    padding: 40px;
+    background: #f8f9fa;
+}
+
+.input-section h2 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #888;
+    font-size: 0.85em;
+}
+
+.btn-calculate {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-calculate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Result Section */
+.result-section {
+    padding: 40px;
+}
+
+.result-section h2 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+/* Bazi Card */
+.bazi-card {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #e6d5ac;
+}
+
+.pillar-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.pillar {
+    background: white;
+    border-radius: 10px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.pillar .label {
+    display: block;
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.pillar .gan,
+.pillar .zhi {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* 天干颜色 */
+.gan[data-wuxing="木"] { color: #4CAF50; }
+.gan[data-wuxing="火"] { color: #FF5722; }
+.gan[data-wuxing="土"] { color: #795548; }
+.gan[data-wuxing="金"] { color: #FFC107; }
+.gan[data-wuxing="水"] { color: #2196F3; }
+
+/* 地支颜色 */
+.zhi[data-wuxing="木"] { color: #4CAF50; }
+.zhi[data-wuxing="火"] { color: #FF5722; }
+.zhi[data-wuxing="土"] { color: #795548; }
+.zhi[data-wuxing="金"] { color: #FFC107; }
+.zhi[data-wuxing="水"] { color: #2196F3; }
+
+/* Wuxing Section */
+.wuxing-section {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.wuxing-section h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.wuxing-chart {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.wuxing-item {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.wuxing-item.mu { background: #4CAF50; }
+.wuxing-item.huo { background: #FF5722; }
+.wuxing-item.tu { background: #795548; }
+.wuxing-item.jin { background: #FFC107; color: #333; }
+.wuxing-item.shui { background: #2196F3; }
+
+.wuxing-item .count {
+    font-size: 2em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Personality Card */
+.personality-section {
+    margin-bottom: 30px;
+}
+
+.personality-card {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 2px solid #90caf9;
+}
+
+.personality-card h3 {
+    color: #1565c0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.personality-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.day-master {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.traits-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.trait-tag {
+    background: white;
+    color: #667eea;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.personality-desc {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.05em;
+}
+
+.personality-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.personality-sections .section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.personality-sections .section h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.personality-sections .section p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+/* Wuxing Advice Card */
+.wuxing-advice-card {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #ffcc80;
+    margin-bottom: 30px;
+}
+
+.wuxing-advice-card h3 {
+    color: #e65100;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.wuxing-advice-card p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1em;
+}
+
+/* Responsive for personality */
+@media (max-width: 600px) {
+    .personality-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .traits-tags {
+        gap: 8px;
+    }
+    
+    .trait-tag {
+        font-size: 0.85em;
+        padding: 5px 12px;
+    }
+}
+
+/* Consultation Section */
+.consultation-section {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+}
+
+.consultation-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.consultation-section > p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.contact-info {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.contact-btn.tg {
+    background: linear-gradient(135deg, #0088cc 0%, #00a8e6 100%);
+}
+
+.contact-btn.wx {
+    background: linear-gradient(135deg, #07c160 0%, #00b057 100%);
+}
+
+.services {
+    list-style: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.services li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    color: #555;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.services li:last-child {
+    border-bottom: none;
+}
+
+.services li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .pillar-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wuxing-chart {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+    }
+}

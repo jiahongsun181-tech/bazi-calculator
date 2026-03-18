@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>八字排盘工具 - 免费开源</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>八字排盘工具</h1>
+            <p class="subtitle">免费开源 · 精准排盘 · 专业咨询</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <h2>输入出生信息</h2>
+                <div class="form-group">
+                    <label>出生日期（公历）</label>
+                    <input type="date" id="birthDate" required>
+                </div>
+                <div class="form-group">
+                    <label>出生时间</label>
+                    <input type="time" id="birthTime" required>
+                </div>
+                <div class="form-group">
+                    <label>性别</label>
+                    <select id="gender">
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                    </select>
+                </div>
+                <button onclick="calculateBazi()" class="btn-calculate">开始排盘</button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display:none;">
+                <h2>八字排盘结果</h2>
+                <div class="bazi-card">
+                    <div class="pillar-row">
+                        <div class="pillar">
+                            <span class="label">年柱</span>
+                            <span class="gan" id="yearGan"></span>
+                            <span class="zhi" id="yearZhi"></span>
+                        </div>
+                        <div class="pillar">
+                            <span class="label">月柱</span>
+                            <span class="gan" id="monthGan"></span>
+                            <span class="zhi" id="monthZhi"></span>
+                        </div>
+                        <div class="pillar">
+                            <span class="label">日柱</span>
+                            <span class="gan" id="dayGan"></span>
+                            <span class="zhi" id="dayZhi"></span>
+                        </div>
+                        <div class="pillar">
+                            <span class="label">时柱</span>
+                            <span class="gan" id="hourGan"></span>
+                            <span class="zhi" id="hourZhi"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wuxing-section">
+                    <h3>五行分析</h3>
+                    <div class="wuxing-chart" id="wuxingChart"></div>
+                </div>
+
+                <div class="consultation-section">
+                    <h3>需要专业解读？</h3>
+                    <p>八字排盘只是开始，真正的命理分析需要结合大运、流年、神煞等综合判断。</p>
+                    <div class="contact-info">
+                        <a href="https://t.me/fengshui68s" target="_blank" class="contact-btn tg">
+                            Telegram: @fengshui68s
+                        </a>
+                        <a href="weixin://dl/chat?fengshui68s" class="contact-btn wx">
+                            微信: fengshui68s
+                        </a>
+                    </div>
+                    <ul class="services">
+                        <li>八字详批（性格、事业、财运、婚姻）</li>
+                        <li>流年运势预测</li>
+                        <li>居家风水布局指导</li>
+                        <li>事业决策咨询</li>
+                        <li>婚姻感情分析</li>
+                        <li>起名改名建议</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>开源项目 | <a href="https://github.com/yourusername/bazi-calculator" target="_blank">GitHub</a></p>
+            <p>本工具仅供参考，命理咨询请添加联系方式</p>
+        </footer>
+    </div>
+
+    <script src="bazi.js"></script>
+</body>
+</html>
